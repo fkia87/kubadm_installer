@@ -57,6 +57,9 @@ apt-get -q update
 apt-get -q -y install docker-ce docker-ce-cli containerd.io docker-compose-plugin
 echo -e "${GREEN}Installing \"cri-dockerd\"...${DECOLOR}"
 dpkg -i ./cri-dockerd_0.2.3.3-0.ubuntu-jammy_amd64.deb
+echo -e "${GREEN}Disabling swap...${DECOLOR}"
+swapoff -a
+sed -i 's/^\/swap/#\/swap/' /etc/fstab
 }
 
 function master_install {
