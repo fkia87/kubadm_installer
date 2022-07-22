@@ -106,6 +106,9 @@ case $1 in
       common_install
       master_install
       worker_install
+      echo -e "${GREEN}All done!"
+      echo -e "You can now create a cluster using this command:"
+      echo -e "kubeadm init --cri-socket=unix:///var/run/cri-dockerd.sock${DECOLOR}"
     ;;
 
     worker)
